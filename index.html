@@ -7,6 +7,706 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="alternate" type="application/rss+xml" title="Entroπ &raquo; Feed" href="https://entropi.study/feed/" />
       <link rel="alternate" type="application/rss+xml" title="Entroπ &raquo; RSS de los comentarios" href="https://entropi.study/comments/feed/" />
+
+
+      <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.5.2/dist/web3.min.js"></script>
+      
+
+      <script>
+const web3 = new Web3(window.ethereum);
+
+const NFT_CONTRACT_ADDRESS = '0x0F5bb6dcE82b3bF9dE2FCD4cc47ef1a1DaFc546b';
+const NFT_CONTRACT_ABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "ERC721IncorrectOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC721InsufficientApproval",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "approver",
+				"type": "address"
+			}
+		],
+		"name": "ERC721InvalidApprover",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "ERC721InvalidOperator",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "ERC721InvalidOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "receiver",
+				"type": "address"
+			}
+		],
+		"name": "ERC721InvalidReceiver",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "ERC721InvalidSender",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ERC721NonexistentToken",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "OwnableInvalidOwner",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "OwnableUnauthorizedAccount",
+		"type": "error"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "approved",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "ApprovalForAll",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_fromTokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_toTokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "BatchMetadataUpdate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "MetadataUpdate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "reclamarRecompensa",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "getApproved",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "ownerOf",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "tokenURI",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+
+
+window.onload = () => {
+//window.onload = function() {
+   if (typeof window.ethereum !== 'undefined') {
+    console.log('MetaMask está instalado!');
+} else {
+    console.log('Por favor instala MetaMask!');
+}
+
+async function conectarMetaMask() {
+    try {
+        // Solicita acceso a la cuenta del usuario
+        const cuentas = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        console.log('Conectado con la cuenta:', cuentas[0]);
+    } catch (error) {
+        console.error('El usuario rechazó la conexión');
+    }
+}
+
+window.ethereum.on('chainChanged', (_chainId) => window.location.reload());
+window.ethereum.on('accountsChanged', (cuentas) => {
+    if (cuentas.length === 0) {
+        console.log('Por favor conecta tu cuenta');
+    } else {
+        console.log('Conectado con la cuenta:', cuentas[0]);
+    }
+});
+
+
+
+    if (typeof window.ethereum !== 'undefined') {
+        conectarMetaMask();
+    }
+
+    async function cambiarARedMumbai() {
+    try {
+        await window.ethereum.request({
+            method: 'wallet_addEthereumChain',
+            params: [{
+                chainId: '0x13881',
+                chainName: 'Mumbai Testnet',
+                nativeCurrency: {
+                    name: 'Matic',
+                    symbol: 'MATIC',
+                    decimals: 18
+                },
+                rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+                blockExplorerUrls: ['https://explorer-mumbai.maticvigil.com/']
+            }]
+        });
+        console.log('Red cambiada a Mumbai Testnet');
+    } catch (error) {
+        console.error('Error al cambiar a Mumbai Testnet:', error);
+    }
+}
+
+async function conectarMetaMask() {
+    try {
+        const cuentas = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+        if (cuentas.length > 0) {
+            estaConectado = true;
+            actualizarBoton();
+        }
+    } catch (error) {
+        console.error('El usuario rechazó la conexión');
+    }
+}
+
+let estaConectado = false;
+
+async function actualizarBoton() {
+    const boton = document.getElementById('botonConexion');
+
+    if (estaConectado) {
+        const chainId = await obtenerChainId();
+
+        if (chainId === '0x13881') {
+            // El usuario está en la testnet de Polygon Mumbai
+            boton.innerText = 'Blockchain connected!';
+            boton.onclick = null;  // Desactivar el evento onclick
+            boton.disabled = true; // Deshabilitar el botón
+        } else {
+            boton.innerText = 'Conectar con Polygon';
+            boton.onclick = cambiarARedMumbai;
+        }
+    } else {
+        boton.innerText = 'Conectar Wallet';
+        boton.onclick = conectarMetaMask;
+    }
+}
+
+
+async function obtenerChainId() {
+    try {
+        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+        return chainId;
+    } catch (error) {
+        console.error('Error al obtener el chainId:', error);
+    }
+}
+
+
+async function reclamarNFT() {
+
+    const web3 = new Web3(window.ethereum);
+    const nftContract = new web3.eth.Contract(NFT_CONTRACT_ABI, NFT_CONTRACT_ADDRESS);
+    const cuentas = await web3.eth.getAccounts();
+
+    if (cuentas.length === 0) {
+        console.error('Por favor conecta tu cuenta.');
+        return;
+    }
+
+    const cuentaUsuario = cuentas[0];
+
+    try {
+        // Suponiendo que tienes una función en tu contrato llamada 'reclamarRecompensa'
+        // que transfiere un NFT al usuario que la invoca.
+        const txReceipt = await nftContract.methods.reclamarRecompensa().send({ from: cuentaUsuario });
+        console.log('NFT reclamado exitosamente:', txReceipt);
+    } catch (error) {
+        console.error('Error al reclamar el NFT:', error);
+    }
+}
+};
+
+
+
+//}
+
+   
+
+      
+      </script>
+
       <script>
          window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/entropi.study\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.3.1"}};
          /*! This file is auto-generated */
@@ -110,7 +810,7 @@
 
             <div class="elementor-element elementor-element-db13eb6 elementor-widget elementor-widget-button" data-id="db13eb6" data-element_type="widget" data-widget_type="button.default">
                 <div class="elementor-widget-container">
-                   <div class="elementor-button-wrapper"> 			<a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" href="register.php"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Wallet</span> 		</span> 					</a> 		</div>
+                   <div class="elementor-button-wrapper"> 			<button class="elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" onclick="conectarMetaMask()"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Wallet</span> 		</span> 					</button> 		</div>
                 </div>
              </div>
 
