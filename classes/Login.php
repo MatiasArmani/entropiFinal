@@ -67,9 +67,9 @@ class Login
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
-                $sql = "SELECT id, username, email, password_hash, rank
+                $sql = "SELECT id, username, mail, password_hash, rank
                         FROM user
-                        WHERE rank != 0 and (username = '" . $user_name . "' OR email = '" . $user_name . "');";
+                        WHERE (username = '" . $user_name . "' OR mail = '" . $user_name . "');";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -85,8 +85,7 @@ class Login
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['user_id'] = $result_row->id;
 						$_SESSION['user_name'] = $result_row->username;
-                        $_SESSION['user_email'] = $result_row->email;
-                        $_SESSION['user_rank'] = $result_row->rank;
+                        $_SESSION['user_email'] = $result_row->mail;
                         $_SESSION['user_login_status'] = 1;
 
                     } else {

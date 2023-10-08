@@ -28,73 +28,7 @@ if ($login->isUserLoggedIn() == true) {
     // the user is not logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are not logged in" view.
     ?>
-	<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>FactorINN | Login</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/style.css">
-  <!-- CSS  -->
-   <link href="css/login.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-   <link rel=icon href='img/favicon.png' sizes="32x32" type="image/png">
-</head>
-<body>
- <div class="container">
-        <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="img/avatar.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="form-signin">
-			<?php
-				// show potential errors / feedback (from login object)
-				if (isset($login)) {
-					if ($login->errors) {
-						?>
-						<div class="alert alert-danger alert-dismissible" role="alert">
-						    <strong>Error!</strong> 
-						
-						<?php 
-						foreach ($login->errors as $error) {
-							echo $error;
-						}
-						?>
-						</div>
-						<?php
-					}
-					if ($login->messages) {
-						?>
-						<div class="alert alert-success alert-dismissible" role="alert">
-						    <strong>Aviso!</strong>
-						<?php
-						foreach ($login->messages as $message) {
-							echo $message;
-						}
-						?>
-						</div> 
-						<?php 
-					}
-				}
-				?>
-                <span id="reauth-email" class="reauth-email"></span>
-                <input class="form-control" placeholder="Usuario / Correo" name="user_name" type="text" value="" autofocus="" required>
-                <input class="form-control" placeholder="Contraseña" name="user_password" type="password" value="" autocomplete="off" required>
-                <button type="submit" class="btn btn-lg btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sesión</button>
-            </form><!-- /form -->
-            
-        </div><!-- /card-container -->
-    </div><!-- /container -->
-  </body>
-</html>
-
-	<?php
-}
-
-
-
-
-
+    
 <!DOCTYPE html> 
 <html class="html" lang="es-AR">
    <head>
@@ -214,10 +148,11 @@ if ($login->isUserLoggedIn() == true) {
                                     </div>
                                  </div>
 
-									<form class="mainform" action="process_register.php" method="post">
+                                 <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="form-signin">
+                           <span id="reauth-email" class="reauth-email"></span>
                               <h1 class="elementor-heading-title elementor-size-default">Login</h1><br>
-									    Email: <input type="email" name="email" required><br><br>
-									    Password: <input type="password" name="password" required><br><br>
+									    Email: <input type="email" name="user_name" required><br><br>
+									    Password: <input type="password" name="user_password" required><br><br>
 
 									    <br><br>
 									    <input type="submit" value="Register">
@@ -260,3 +195,10 @@ if ($login->isUserLoggedIn() == true) {
       </script> <script src='./js/elementor-assets-js-frontend.min.js' id='elementor-frontend-js'></script> <script src='./js/pro-elements-assets-js-elements-handlers.min.js' id='pro-elements-handlers-js'></script> 
    </body>
 </html>
+
+	<?php
+}
+
+?>
+
+
