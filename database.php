@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "entropi";
+$username = "u104620664_entripi";
+$password = "!Entropi123";
+$dbname = "u104620664_entropi";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
