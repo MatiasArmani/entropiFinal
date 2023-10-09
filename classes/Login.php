@@ -72,16 +72,6 @@ class Login
                         WHERE (username = '" . $user_name . "' OR mail = '" . $user_name . "');";
                 $result_of_login_check = $this->db_connection->query($sql);
 
-
-                $sqll="SELECT username FROM User where id = 1";
-                $queryy = mysqli_query($con, $sqll);
-                while ($row=mysqli_fetch_array($queryy)){
-                    $test=$row['username'];
-
-                    echo "<script>console.log('Debug Objects: " . $test . "' );</script>";
-                }
-
-
                 // if this user exists
                 if ($result_of_login_check->num_rows == 1) {
 
