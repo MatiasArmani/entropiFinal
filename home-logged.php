@@ -91,7 +91,7 @@
                   <link rel="stylesheet" href="./css/pro-elements-assets-css-widget-nav-menu.min.css">
                   <nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none">
                      <ul id="menu-1-7bfebe9d" class="elementor-nav-menu">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="https://entropi.study/projects/" class="elementor-item">Projects</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="https://entropi.study/projects.html" class="elementor-item">Projects</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-282"><a href="https://entropi.study/investigadores/" class="elementor-item">Researchers</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a href="./resources.html" class="elementor-item">Resources</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a href="https://entropi.study/mis-proyectos/" class="elementor-item">My projects</a></li>
@@ -103,7 +103,7 @@
                   <div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false"> 			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">Menu</span> 		</div>
                   <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
                      <ul id="menu-2-7bfebe9d" class="elementor-nav-menu">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="https://entropi.study/projects/" class="elementor-item" tabindex="-1">Projects</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="https://entropi.study/projects.html" class="elementor-item" tabindex="-1">Projects</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-282"><a href="https://entropi.study/investigadores/" class="elementor-item" tabindex="-1">Researchers</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-286"><a href="./resources.html" class="elementor-item" tabindex="-1">Resources</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a href="https://entropi.study/mis-proyectos/" class="elementor-item" tabindex="-1">My projects</a></li>
@@ -148,7 +148,7 @@
                   </div>
                   <div class="elementor-element elementor-element-df33116 elementor-widget elementor-widget-button" data-id="df33116" data-element_type="widget" data-widget_type="button.default">
                      <div class="elementor-widget-container">
-                        <div class="elementor-button-wrapper"> 			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.zooniverse.org/projects/marek-slipski/cloudspotting-on-mars"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Research Project</span> 		</span> 					</a> 		</div>
+                        <div class="elementor-button-wrapper"> 			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.zooniverse.org/projects.htmlmarek-slipski/cloudspotting-on-mars"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Research Project</span> 		</span> 					</a> 		</div>
                      </div>
                   </div>
                </div>
@@ -279,7 +279,7 @@
                               </div>
                               <div class="elementor-repeater-item-c2b83ef swiper-slide">
                                  <div class="swiper-slide-bg" role="img"></div>
-                                 <a class="swiper-slide-inner" href="https://entropi.study/projects/">
+                                 <a class="swiper-slide-inner" href="https://entropi.study/projects.html">
                                     <div class="swiper-slide-contents">
                                        <div class="elementor-slide-heading">Projects</div>
                                        <div class="elementor-slide-description">Search projects align with your values and your skills </div>
