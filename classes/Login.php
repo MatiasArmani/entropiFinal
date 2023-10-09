@@ -72,8 +72,6 @@ class Login
                         WHERE (username = '" . $user_name . "' OR mail = '" . $user_name . "');";
                 $result_of_login_check = $this->db_connection->query($sql);
 
-                echo "<script>console.log('Debug Objects: " . $result_of_login_check . "' );</script>";
-
                 // if this user exists
                 if ($result_of_login_check->num_rows == 1) {
 
@@ -91,9 +89,12 @@ class Login
                         $_SESSION['user_login_status'] = 1;
 
                     } else {
+                        
+                echo "<script>console.log('Debug Objects: ho' );</script>";
                         $this->errors[] = "Usuario y/o contraseña no coinciden.";
                     }
                 } else {
+                    echo "<script>console.log('Debug Objects: la' );</script>";
                     $this->errors[] = "Usuario y/o contraseña no coinciden.";
                 }
             } else {
