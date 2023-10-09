@@ -185,8 +185,8 @@ if ($login->isUserLoggedIn() == true) {
 				}
 				?>
                            <span id="reauth-email" class="reauth-email"></span>
-									    Username / Email: <input type="text" name="user_name" required><br><br>
-									    Password: <input type="password" name="user_password" required><br><br>
+									    Username / Email:          Test account (Use this or create new one) - Username: nasa | Password: <input type="text" name="user_name" required><br><br>
+									    Password:          <input type="password" name="user_password" required><br><br>
 
 									    
                               <button type="submit" class="btn btn-lg btn-success btn-block btn-signin" name="login" id="submit">Iniciar Sesión</button>
