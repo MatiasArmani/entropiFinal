@@ -150,7 +150,38 @@ if ($login->isUserLoggedIn() == true) {
                                  </div>
 
                            <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="mainform form-signin">
-                            <span id="reauth-email" class="reauth-email"></span>
+                           
+                           <?php
+				// show potential errors / feedback (from login object)
+				if (isset($login)) {
+					if ($login->errors) {
+						?>
+						<div class="alert alert-danger alert-dismissible" role="alert">
+						    <strong>Error!</strong> 
+						
+						<?php 
+						foreach ($login->errors as $error) {
+							echo $error;
+						}
+						?>
+						</div>
+						<?php
+					}
+					if ($login->messages) {
+						?>
+						<div class="alert alert-success alert-dismissible" role="alert">
+						    <strong>Aviso!</strong>
+						<?php
+						foreach ($login->messages as $message) {
+							echo $message;
+						}
+						?>
+						</div> 
+						<?php 
+					}
+				}
+				?>
+                           <span id="reauth-email" class="reauth-email"></span>
                               <h1 class="elementor-heading-title elementor-size-default">Login</h1><br>
 									    Email: <input type="text" name="user_name" required><br><br>
 									    Password: <input type="password" name="user_password" required><br><br>
