@@ -654,11 +654,11 @@ async function actualizarBoton() {
             boton.onclick = null;  // Desactivar el evento onclick
             boton.disabled = true; // Deshabilitar el botón
         } else {
-            boton.innerText = 'Conectar con Polygon';
+            boton.innerText = 'Connect with Polygon';
             boton.onclick = cambiarARedMumbai;
         }
     } else {
-        boton.innerText = 'Conectar Wallet';
+        boton.innerText = 'Connect Wallet';
         boton.onclick = conectarMetaMask;
     }
 }
@@ -669,7 +669,7 @@ async function obtenerChainId() {
         const chainId = await window.ethereum.request({ method: 'eth_chainId' });
         return chainId;
     } catch (error) {
-        console.error('Error al obtener el chainId:', error);
+        console.error('Error getting chainId:', error);
     }
 }
 
@@ -681,7 +681,7 @@ async function reclamarNFT() {
     const cuentas = await web3.eth.getAccounts();
 
     if (cuentas.length === 0) {
-        console.error('Por favor conecta tu cuenta.');
+        console.error('Please connect your account.');
         return;
     }
 
@@ -810,7 +810,7 @@ async function reclamarNFT() {
 
             <div class="elementor-element elementor-element-db13eb6 elementor-widget elementor-widget-button" data-id="db13eb6" data-element_type="widget" data-widget_type="button.default">
                 <div class="elementor-widget-container">
-                   <div class="elementor-button-wrapper"> 			<button id="botonConexion" class="elementor-button-wrapper elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" onclick="conectarMetaMask()"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Conectar Wallet</span> 		</span> 					</button> 		</div>
+                   <div class="elementor-button-wrapper"> 			<button id="botonConexion" class="elementor-button-wrapper elementor-button elementor-button-link elementor-size-sm elementor-animation-shrink" onclick="conectarMetaMask()"> 						<span class="elementor-button-content-wrapper"> 						<span class="elementor-button-text">Connect Wallet</span> 		</span> 					</button> 		</div>
                 </div>
              </div>
 

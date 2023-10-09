@@ -151,6 +151,9 @@ if ($login->isUserLoggedIn() == true) {
 
                            <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="mainform form-signin">
                            
+
+                           <h1 class="elementor-heading-title elementor-size-default">Login</h1><br>
+
                            <?php
 				// show potential errors / feedback (from login object)
 				if (isset($login)) {
@@ -182,7 +185,6 @@ if ($login->isUserLoggedIn() == true) {
 				}
 				?>
                            <span id="reauth-email" class="reauth-email"></span>
-                              <h1 class="elementor-heading-title elementor-size-default">Login</h1><br>
 									    Email: <input type="text" name="user_name" required><br><br>
 									    Password: <input type="password" name="user_password" required><br><br>
 
