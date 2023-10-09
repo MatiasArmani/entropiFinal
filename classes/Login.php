@@ -72,6 +72,8 @@ class Login
                         WHERE (username = '" . $user_name . "' OR mail = '" . $user_name . "');";
                 $result_of_login_check = $this->db_connection->query($sql);
 
+                echo "<script>console.log('Debug Objects: " . $result_of_login_check . "' );</script>";
+
                 // if this user exists
                 if ($result_of_login_check->num_rows == 1) {
 
