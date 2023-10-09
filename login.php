@@ -185,8 +185,8 @@ if ($login->isUserLoggedIn() == true) {
 				}
 				?>
                            <span id="reauth-email" class="reauth-email"></span>
-                              Test account (Use this or create new one) - Username: nasa | Password: 123 
-                              
+                              Test account (Use this or create new one) - Username: nasa | Password: 123 <br><br>
+
 									    Username / Email:          <input type="text" name="user_name" required><br><br>
 									    Password:          <input type="password" name="user_password" required><br><br>
 
