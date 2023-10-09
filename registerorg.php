@@ -92,7 +92,7 @@ $datoRecibido = $_GET['username'];
                                           <link rel="stylesheet" href="./css/pro-elements-assets-css-widget-nav-menu.min.css">
                                           <nav class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none">
                                              <ul id="menu-1-35ea19c8" class="elementor-nav-menu">
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://entropi.study/home/" class="elementor-item">Home</a></li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://entropi.study/index.html" class="elementor-item">Home</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://entropi.study/resources/" class="elementor-item">Resources</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="https://entropi.study/about-us/" class="elementor-item">About Us</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://entropi.study/login.php" class="elementor-item">Login</a></li>
@@ -101,7 +101,7 @@ $datoRecibido = $_GET['username'];
                                           <div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">             <i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>            <span class="elementor-screen-only">Menu</span>         </div>
                                           <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
                                              <ul id="menu-2-35ea19c8" class="elementor-nav-menu">
-                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://entropi.study/home/" class="elementor-item" tabindex="-1">Home</a></li>
+                                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://entropi.study/index.html" class="elementor-item" tabindex="-1">Home</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="https://entropi.study/resources/" class="elementor-item" tabindex="-1">Resources</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a href="https://entropi.study/about-us/" class="elementor-item" tabindex="-1">About Us</a></li>
                                                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://entropi.study/login.php" class="elementor-item" tabindex="-1">Login</a></li>
