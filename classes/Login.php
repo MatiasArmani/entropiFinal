@@ -73,7 +73,7 @@ class Login
                 $result_of_login_check = $this->db_connection->query($sql);
 
 
-                $sqll="SELECT username FROM USER where id = 1";
+                $sqll="SELECT username FROM User where id = 1";
                 $queryy = mysqli_query($con, $sqll);
                 while ($row=mysqli_fetch_array($queryy)){
                     $test=$row['username'];
