@@ -149,7 +149,7 @@ if ($login->isUserLoggedIn() == true) {
                                     </div>
                                  </div>
 
-                           <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="form-signin">
+                           <form method="post" accept-charset="utf-8" action="login.php" name="loginform" autocomplete="off" role="form" class="mainform form-signin">
                             <span id="reauth-email" class="reauth-email"></span>
                               <h1 class="elementor-heading-title elementor-size-default">Login</h1><br>
 									    Email: <input type="text" name="user_name" required><br><br>
