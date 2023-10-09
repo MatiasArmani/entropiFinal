@@ -73,9 +73,9 @@ class Login
                 $result_of_login_check = $this->db_connection->query($sql);
 
 
-                $sql="SELECT username FROM USER where id = 1";
-                $query = mysqli_query($con, $sql);
-                while ($row=mysqli_fetch_array($query)){
+                $sqll="SELECT username FROM USER where id = 1";
+                $queryy = mysqli_query($con, $sqll);
+                while ($row=mysqli_fetch_array($queryy)){
                     $test=$row['username'];
 
                     echo "<script>console.log('Debug Objects: " . $test . "' );</script>";
