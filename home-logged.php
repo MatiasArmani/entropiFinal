@@ -97,7 +97,7 @@
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a href="https://entropi.study/mis-proyectos/" class="elementor-item">My projects</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a href="https://entropi.study/solicitudes/" class="elementor-item">Applications</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="https://entropi.study/profile/" class="elementor-item">Profile</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-376"><a href="./index.html" class="elementor-item">Log Out</a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-376"><a href="./login.php?logout" class="elementor-item">Log Out</a></li>
                      </ul>
                   </nav>
                   <div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false"> 			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">Menu</span> 		</div>
@@ -109,7 +109,7 @@
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-285"><a href="https://entropi.study/mis-proyectos/" class="elementor-item" tabindex="-1">My projects</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-284"><a href="https://entropi.study/solicitudes/" class="elementor-item" tabindex="-1">Applications</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="https://entropi.study/profile/" class="elementor-item" tabindex="-1">Profile</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-376"><a href="./index.html" class="elementor-item" tabindex="-1">Log Out</a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-376"><a href="./login.php?logout" class="elementor-item" tabindex="-1">Log Out</a></li>
                      </ul>
                   </nav>
                </div>
