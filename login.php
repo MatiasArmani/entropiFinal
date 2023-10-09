@@ -20,6 +20,8 @@ $login = new Login();
 
 // ... ask if we are logged in here:
 if ($login->isUserLoggedIn() == true) {
+
+   echo "<script>console.log('Debug Objects: sdfsdf' );</script>";
     // the user is logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are logged in" view.
    header("location: home-logged.php");
