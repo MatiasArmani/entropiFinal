@@ -185,7 +185,7 @@ if ($login->isUserLoggedIn() == true) {
 				}
 				?>
                            <span id="reauth-email" class="reauth-email"></span>
-									    Email: <input type="text" name="user_name" required><br><br>
+									    Username / Email: <input type="text" name="user_name" required><br><br>
 									    Password: <input type="password" name="user_password" required><br><br>
 
 									    
